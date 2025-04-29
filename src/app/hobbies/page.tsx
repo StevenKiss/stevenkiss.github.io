@@ -1,5 +1,9 @@
 // src/app/hobbies/page.tsx
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import HobbiesModal from "@/components/HobbiesModal";
 
 // Create array of objects(hobbies)
 const SECTIONS = [
@@ -88,42 +92,47 @@ const SECTIONS = [
 ];
 
 export default function HobbiesPage() {
-    return (
-        <main className="bg-page">
-            {/* Hero Intro */}
-            <section className="container mx-auto px-6 py-16 text-center">
-                <h1 className="text-4xl font-bold text-gray-900">Hobbies & Adventures</h1>
-                <p className="mt-4 text-lg text-gray-700 max-w-2xl mx-auto">
-                    What you'll find me doing when I'm not coding!
-                </p>
-            </section>
+  const [selected, setSelected] = useState<string | null>(null);
 
-            {/* Hobby Sections */}
-            {SECTIONS.map(({id, title, image, text, reverse}) => (
-                <section
-                    id={id}
-                    key={id}
-                    className={`container mx-auto flex flex-col ${
-                        reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
-                    } items-center overflow-hidden bg-white mb-12 rounded-2xl shadow-lg`}
-                >
-                    {/* Image */}
-                    <div className="flex-1 relative h-64 lg:h-[600px]">
-                        <Image
-                            src={image}
-                            alt={title}
-                            fill
-                            className="object-cover"
-                        />
-                    </div>
+  return (
+    <>
+      {/* Grid of 5 vertical image */}
+      <div
+        className="grid grid-cols-5 grid-rows-1 auto-rows-fr
+      h-screen max-h-[80vh] overflow-hidden"
+      >
+        {SECTIONS.map(({ id, title, image }) => (
+          <button
+            key={id}
+            onClick={() => setSelected(id)}
+            className={`
+                relative h-full w-full overflow-hidden group
+                transition-all duration-300
+                hover:-translate-y-2 focus:-translate-y-2  
+              `}
+          >
+            {/* Hobby Image */}
+            <Image src={image} alt={title} fill className="object-cover" />
 
-                    {/* Text */}
-                    <div className="flex-1 p-8 lg:p-16">
-                        <h2 className="text-3xl font-semibold text-gray-900">{title}</h2>
-                        <p className="mt-4 text-gray-700 max-w-xl">{text}</p>
-                    </div>
-                </section>
-            ))}
-        </main>
-    )
+            {/* Label overlay */}
+            <div
+              className="absolute inset-x-0 top-0 h-12
+                          bg-gradient-to-b from-black/60 to-transparent
+                          flex items-center justify-center
+                          text-white text-lg
+                          transition-all duration-300
+                          group-hover:from-black/60"
+            >
+              {title}
+            </div>
+          </button>
+        ))}
+      </div>
+
+      {/* Modal for details about hobby */}
+      {selected && (
+        <HobbiesModal sectionId={selected} onClose={() => setSelected(null)} />
+      )}
+    </>
+  );
 }
