@@ -8,8 +8,8 @@ import React from 'react';
 
 export default function Footer() {
     return (
-        <footer className="bg-white shadow-inner py-4">
-            <div className="container mx-auto text-center text-sm text-gray-500">
+        <footer className="py-2">
+            <div className="container mx-auto text-center text-xs text-gray-500">
                 © {new Date().getFullYear()} Steven Kiss. All rights reserved.
             </div>
         </footer>
