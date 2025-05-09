@@ -26,7 +26,7 @@ export default function Navbar() {
         >
             <nav className="container mx-auto px-6 flex items-center
             justify-between py-4">
-                <Link href="/" className="logo text-xs text-gray-700">
+                <Link href="/about" className="logo text-xs text-gray-700">
                     stevenkiss
                 </Link>
                 <div className="flex gap-4 text-gray-500">
