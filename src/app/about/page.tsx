@@ -24,13 +24,13 @@ export default function About() {
 
         {/* Subtitle */}
         <p className="text-2xl text-gray-700">
-        Computer Science student & aspiring software and machine learning engineer
+        Computer Science student | Machine Learning engineer | Software developer
         </p>
 
         {/* Description */}
         <p className="text-gray-600 max-w-md">
-          I am a Purdue University CS student who loves to build web apps
-          and tackle challenging machine learning problems!
+          I am a Purdue University CS student who loves tackling challenging
+          machine learning problems and building web apps!
         </p>
 
         {/* Social Buttons */}

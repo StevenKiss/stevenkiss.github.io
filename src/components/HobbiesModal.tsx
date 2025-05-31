@@ -10,8 +10,8 @@ const SECTIONS = [
     id: "rock-climbing",
     title: "Rock Climbing",
     hobbyImage: "/images/cartoons/rockClimbing.png",
-    Image1: "/images/RealImages/rockClimbing1.jpg",
-    Image2: "/images/RealImages/Skiing1.jpg",
+    Image1: "/images/RealImages/RockClimbing1.jpg",
+    Image2: "/images/RealImages/RockClimbing2.jpg",
     text: `I started climbing during my senior year of high school and have been
           hooked ever since. I love outdoor lead climbing and top roping the most, 
           but you'll also catch me on the boulder wall from time to time. I have 
@@ -115,40 +115,41 @@ export default function HobbiesModal({ sectionId, onClose }: Props) {
       <Dialog as="div" className="relative z-50" onClose={onClose}>
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
+          enter="ease-out duration-500"
           enterFrom="opacity-0"
           enterTo="opacity-100"
-          leave="ease-in duration-200"
+          leave="ease-in duration-300"
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 scale-100"
-              leaveTo="opacity-0 scale-95"
+              enter="ease-out duration-500"
+              enterFrom="opacity-0 scale-95 translate-y-4"
+              enterTo="opacity-100 scale-100 translate-y-0"
+              leave="ease-in duration-300"
+              leaveFrom="opacity-100 scale-100 translate-y-0"
+              leaveTo="opacity-0 scale-95 translate-y-4"
             >
-              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 shadow-xl transition-all">
-                <div className="flex flex-col gap-6">
+              <Dialog.Panel className="w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white p-8 shadow-2xl transition-all">
+                <div className="flex flex-col gap-8">
                   {/* Header */}
                   <div className="flex items-center justify-between">
-                    <Dialog.Title className="text-3xl font-bold text-gray-900 font-serif">
+                    <Dialog.Title className="text-4xl font-bold text-gray-900 font-['Inter'] tracking-tight">
                       {section.title}
                     </Dialog.Title>
                     <button
                       onClick={onClose}
-                      className="rounded-full p-2 hover:bg-gray-100"
+                      className="rounded-full p-2 hover:bg-gray-100 transition-colors duration-200"
+                      aria-label="Close modal"
                     >
                       <svg
-                        className="h-6 w-6"
+                        className="h-6 w-6 text-gray-500 hover:text-gray-700"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -164,28 +165,28 @@ export default function HobbiesModal({ sectionId, onClose }: Props) {
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col gap-6">
+                  <div className="flex flex-col gap-8">
                     {/* Text Content */}
                     <div className="flex flex-col gap-4">
-                      <p className="text-gray-600 leading-relaxed font-serif text-lg">
+                      <p className="text-gray-600 leading-relaxed font-['Roboto'] text-lg">
                         {section.text}
                       </p>
                     </div>
                     
                     {/* Personal Images/Videos Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       {/* Image/Video 1 */}
-                      <div className="aspect-square"> {/* Maintain aspect ratio for both image and video */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         {isMovFile(section.Image1) ? (
                           <video
                             src={section.Image1}
-                            width={500} // You might want to adjust these or use CSS for responsiveness
+                            width={500}
                             height={500}
                             autoPlay
                             loop
-                            muted // Important for autoplay in most browsers
-                            playsInline // Important for iOS
-                            className="rounded-lg object-cover w-full h-full"
+                            muted
+                            playsInline
+                            className="object-cover w-full h-full"
                           />
                         ) : (
                           <Image
@@ -193,23 +194,23 @@ export default function HobbiesModal({ sectionId, onClose }: Props) {
                             alt={`${section.title} image 1`}
                             width={500}
                             height={500}
-                            className="rounded-lg object-cover w-full h-full"
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                           />
                         )}
                       </div>
 
                       {/* Image/Video 2 */}
-                      <div className="aspect-square"> {/* Maintain aspect ratio */}
+                      <div className="relative aspect-square rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         {isMovFile(section.Image2) ? (
                           <video
                             src={section.Image2}
-                            width={500} // You might want to adjust these or use CSS for responsiveness
+                            width={500}
                             height={500}
                             autoPlay
                             loop
-                            muted // Important for autoplay in most browsers
-                            playsInline // Important for iOS
-                            className="rounded-lg object-cover w-full h-full"
+                            muted
+                            playsInline
+                            className="object-cover w-full h-full"
                           />
                         ) : (
                           <Image
@@ -217,7 +218,7 @@ export default function HobbiesModal({ sectionId, onClose }: Props) {
                             alt={`${section.title} image 2`}
                             width={500}
                             height={500}
-                            className="rounded-lg object-cover w-full h-full"
+                            className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                           />
                         )}
                       </div>
