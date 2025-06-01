@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { getLastCommitDate } from '@/utils/git';
 
 export default function About() {
+  const lastUpdated = getLastCommitDate();
+  
   return (
     <section className="
       container
@@ -31,6 +34,11 @@ export default function About() {
         <p className="text-gray-600 max-w-md">
           I am a Purdue University CS student who loves tackling challenging
           machine learning problems and building web apps!
+        </p>
+
+        {/* Last Updated */}
+        <p className="text-sm text-gray-500 italic">
+          Last updated: {lastUpdated}
         </p>
 
         {/* Social Buttons */}
