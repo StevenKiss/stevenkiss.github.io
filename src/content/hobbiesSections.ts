@@ -57,7 +57,8 @@ export const SECTIONS: HobbySection[] = [
       at both the start and end of the trail. I also got the chance to head out
       to Santa Fe, New Mexico with some friends from high school and had a blast
       riding at the Chips and Salsa Mountain Bike Park. That place was a lot of
-      fun.`,
+      fun. Also note my impeccable fashion sense in the first image from when I
+      was much younger.`,
   },
   {
     id: "gym",

@@ -12,62 +12,64 @@ interface Experience {
   company: string;
   period: string;
   description: string[];
-  technologies: string[];
+  skills: string[];
   location: string;
 }
 
 const experiences: Experience[] = [
   {
     id: 1,
-    title: "Software Engineer",
-    company: "Example Company",
-    period: "2023 - Present",
+    title: "Data Science Intern",
+    company: "Kimberly-Clark through The Data Mine at Purdue University",
+    period: "Jun 2023 - Present",
     description: [
-      "Led development of key features",
-      "Collaborated with cross-functional teams",
-      "Implemented best practices and coding standards"
+        "Develop Python-based data pipelines to validate and clean sustainability metrics across plastic/fiber usage, water consumption, and Scope 3 emissions",
+        "Design PowerBI dashboards to automate executive reporting for global environmental impact KPIs",
+        "Implement machine learning models to identify data quality issues and predict resource consumption trends",
+        "Integrate SAP and Sphera data sources into unified sustainability reporting frameworks",
     ],
-    technologies: ["React", "TypeScript", "Node.js"],
+    skills: ["Python", "Power BI", "Machine Learning", "Data Integration", "SQL"],
     location: "Remote"
   },
   {
     id: 2,
-    title: "Frontend Developer",
-    company: "Tech Innovators Ltd.",
-    period: "2021 - 2023",
+    title: "Undergraduate Data Science Researcher",
+    company: "National Space Intelligence Center through The Data Mine at Purdue University",
+    period: "Jan 2025 - May 2025",
     description: [
-      "Developed responsive web applications",
-      "Worked closely with UI/UX designers",
-      "Optimized performance for mobile and desktop"
+      "Analyzed continental U.S. sensor data using K-means, hierarchical clustering, DBSCAN, GMM, and ST-DBSCAN, finding K-means best mirrored U.S. biomes.",
+      "Developed an algorithm to track monthly cluster evolution via a global cluster pool, identifying temporal trends.",
+      "Delivered insights on seasonal variations in optical and laser sensor data to enhance system performance",
     ],
-    technologies: ["Vue.js", "Tailwind CSS", "JavaScript"],
-    location: "London, UK"
+    skills: ["Python", "Scikit-learn", "Scrum", "Data Analytics", "Machine Learning", "K-means"],
+    location: "West Lafayette, IN"
   },
   {
     id: 3,
-    title: "Full Stack Developer",
-    company: "Startup Hub",
-    period: "2019 - 2021",
+    title: "ML Course Instructor",
+    company: "All-in-ai",
+    period: "Aug 2022 - Aug 2022",
     description: [
-      "Built RESTful APIs and integrated third-party services",
-      "Managed cloud deployments and CI/CD pipelines",
-      "Mentored junior developers"
+      "Helped organize a free summer coding camp focused on teaching Python and introductory machine learning concepts",
+      "Instructed middle and high school students in Python programming and basic machine learning techniques, including using models such as random forests to predict home prices",
+      "Secured sponsorships from local businesses to provide free lunches for all camp attendees",
     ],
-    technologies: ["Node.js", "Express", "MongoDB", "AWS"],
-    location: "Berlin, Germany"
+    skills: ["Python", "Machine Learning", "Educational Instruction"],
+    location: "Colorado Springs, CO"
   },
   {
     id: 4,
-    title: "Junior Web Developer",
-    company: "Creative Solutions",
-    period: "2018 - 2019",
+    title: "Semiconductor Summer Intern",
+    company: "MITRE",
+    period: "Jun 2022 - Aug 2022",
     description: [
-      "Maintained and updated company website",
-      "Assisted in the migration to a modern tech stack",
-      "Wrote unit and integration tests"
+      "Developed application-specific integrated circuit (ASIC) for a transistor-based ring oscillator.",
+      "Gained proficiency in Verilog HDL, design verification, and EDA tools such as Xschem, Netgen, and OpenLane.",
+      "Conducted circuit simulations, schematic and layout design, and clock signal propagation in a 50MHz oscillator.",
+      "Mentored a co-worker by teaching semiconductor design and verification methodologies.",
     ],
-    technologies: ["HTML", "CSS", "JavaScript", "Jest"],
-    location: "Toronto, Canada"
+    skills: ["Verilog", "Xschem", "Netgen", "OpenLane"],
+    location: "Colorado Springs, CO"
   },
 ];
 
@@ -163,13 +165,13 @@ const Experience = () => {
                       ))}
                     </ul>
 
-                    {/* Technologies */}
+                    {/* skills */}
                     <div className="flex items-center space-x-2 mb-3">
                       <Code className="w-4 h-4 text-gray-600" />
-                      <span className="text-sm font-medium text-gray-600">Technologies:</span>
+                      <span className="text-sm font-medium text-gray-600">skills:</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {experience.technologies.map((tech, i) => (
+                      {experience.skills.map((tech, i) => (
                         <span 
                           key={i} 
                           className="bg-gradient-to-r from-blue-100 to-green-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium border border-gray-200 hover:shadow-md transition-shadow duration-200"
